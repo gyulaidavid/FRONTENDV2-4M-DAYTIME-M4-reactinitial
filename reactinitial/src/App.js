@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Laptops from "./components/Laptops";
-import LoadingMask from "./components/LoadingMask";
+import Laptop from "./components/Laptop";
+
 
 const App = () => {
   const [fetchData, setFetchData] = useState();
@@ -13,11 +13,19 @@ const App = () => {
 
 console.log(fetchData);
 
+
+
   return (
  <>
  <div>
-{/* <header>Header</header> */}
-{fetchData.length > 0 ? <Laptops fetchData={fetchData}/> : <LoadingMask/>}
+Helló
+{fetchData.map((laptop) => (
+   <Laptop
+   laptopName={laptop.name}
+   laptopBrand={laptop.brand}
+   laptopWeight={laptop.weight}
+ />
+))}
 </div>
 </>
   )
