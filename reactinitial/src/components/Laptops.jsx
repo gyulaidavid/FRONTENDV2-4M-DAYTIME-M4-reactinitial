@@ -3,13 +3,13 @@ import Laptop from './Laptop'
 
 function Laptops({fetchData}) {
 
-
+console.log(fetchData);
+    console.log(fetchData);
 
   return (
     <div>
-   { fetchData.map((laptop, i) =>(<Laptop key={i} laptop={laptop}/>) )    
+   { fetchData.map((laptop, i) =>(<Laptop key={i} laptop={fetchData}/>) )    
  }
-
     </div>
   )
 }

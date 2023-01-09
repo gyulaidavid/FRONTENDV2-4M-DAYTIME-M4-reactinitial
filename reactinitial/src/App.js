@@ -11,10 +11,14 @@ const App = () => {
       .then((data) => setFetchData(data));
   }, []);
 
-  return <div>
-<header>Header</header>
-{fetchData.length > 0 ?(<Laptops fetchData={fetchData}/>) : <LoadingMask/>}
-  </div>;
+console.log(fetchData);
+
+  return (
+ <>
+{/* <header>Header</header> */}
+{fetchData.length > 0 ? (<Laptops fetchData={fetchData}/>) : (<LoadingMask/>)}
+</>
+  )
 };
 
 export default App;
