@@ -3,7 +3,7 @@ import Laptops from "./components/Laptops";
 import LoadingMask from "./components/LoadingMask";
 
 const App = () => {
-  const [fetchData, setFetchData] = useState();
+  const [fetchData, setFetchData] = useState([]);
 
   useEffect(() => {
     fetch("https://demoapi.com/api/laptop")
@@ -17,7 +17,7 @@ console.log(fetchData);
  <>
  <div>
 {/* <header>Header</header> */}
-{fetchData.length > 0 ? <Laptops fetchData={fetchData}/> : <LoadingMask/>}
+{fetchData.length === 0 ? <LoadingMask/> : <Laptops fetchData={fetchData}/> }
 </div>
 </>
   )
