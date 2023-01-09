@@ -10,10 +10,7 @@ function Subscription({ useData, setUseData }) {
         email: email,
       }),
       headers: { "Content-Type": "application/json" },
-    }).then((useData) => {
-      setUseData(useData);
-      console.log(useData);
-    });
+    })
   };
 
   return (
@@ -31,6 +28,8 @@ function Subscription({ useData, setUseData }) {
         }}
       />
       <button
+      type="submit"
+      disabled={!(email.includes('@') && email.includes('.'))}  // Miért kell zárójel?
         onClick={() => {
           newEmail();
         }}
