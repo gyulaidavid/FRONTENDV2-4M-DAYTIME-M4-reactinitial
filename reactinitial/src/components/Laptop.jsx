@@ -1,15 +1,15 @@
-// import React from "react";
+import React from "react";
 
-// function Laptop({ laptop }) {
-//   console.log(laptop);
+function Laptop({ laptop }) {
+  console.log(laptop);
 
-//   return (
-//     <>
-//       <div>
-//         <h1>{laptop.brand}</h1>
-//       </div>
-//     </>
-//   );
-// }
+  return (
+    <>
+      <div>
+        <h1>{laptop.brand}</h1>
+      </div>
+    </>
+  );
+}
 
-// export default Laptop;
+export default Laptop;

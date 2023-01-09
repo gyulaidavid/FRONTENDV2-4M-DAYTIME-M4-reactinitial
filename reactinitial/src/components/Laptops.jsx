@@ -1,7 +1,7 @@
 import React from 'react'
 import Laptop from './Laptop'
 
-function Laptops({fetchData}) {
+function Laptops({fetchData }) {
 
 console.log(fetchData);
     console.log(fetchData);
