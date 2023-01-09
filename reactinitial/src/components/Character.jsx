@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react'
 
 function Character({person}) {
 
+  const [show, setShow] = useState(false)
 
 
 
@@ -10,7 +11,11 @@ function Character({person}) {
   return (
     <div>
         <h1>{person.name}</h1>
-    <button>Show more</button>
+        {show && 
+    <>
+    <h1>{person.details}</h1>
+    </>}
+    <button onClick={() => setShow(show ? false : true)}>{!show ? "Show More" : "Show Less"}</button>
     </div>
   )
 }
