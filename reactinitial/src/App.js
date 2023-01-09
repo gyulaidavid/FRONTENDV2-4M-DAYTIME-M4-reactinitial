@@ -15,8 +15,10 @@ console.log(fetchData);
 
   return (
  <>
+ <div>
 {/* <header>Header</header> */}
-{fetchData.length > 0 ? (<Laptops fetchData={fetchData}/>) : (<LoadingMask/>)}
+{fetchData.length > 0 ? <Laptops fetchData={fetchData}/> : <LoadingMask/>}
+</div>
 </>
   )
 };
