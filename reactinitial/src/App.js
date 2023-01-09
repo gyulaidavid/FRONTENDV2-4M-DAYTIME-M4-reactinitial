@@ -1,41 +1,20 @@
-import React, { useEffect, useState } from "react"
-import Characters from "./components/Characters"
-import Subscription from "./components/Subscription"
+import React, { useEffect, useState } from "react";
+import Laptops from "./components/Laptops";
+import LoadingMask from "./components/LoadingMask";
 
 const App = () => {
+  const [fetchData, setFetchData] = useState();
 
-  const [useData, setUseData] = useState([])
+  useEffect(() => {
+    fetch("https://demoapi.com/api/laptop")
+      .then((res) => res.json())
+      .then((data) => setFetchData(data));
+  }, []);
 
-useEffect(() => {
-fetch('https://demoapi.com/api/series/howimetyourmother')
-.then((res) => res.json())
-.then((data) => setUseData(data))
+  return <div>
+<header>Header</header>
+{fetchData.length > 0 ?(<Laptops fetchData={fetchData}/>) : <LoadingMask/>}
+  </div>;
+};
 
-},[])
-console.log(useData);
-
-const [showSubcription, setShowSubcription] = useState(false);
-
-useEffect(() => {
-    setTimeout(() => setShowSubcription(true), 3000);
-}, []);
-
-
-  return (
-    <div>
-      <h1>Series Api</h1>
-
-      {useData.length > 0 ? (
-        <Characters useData={useData} />
-      ) : (
-        'Loading...'
-      )}
-
-{ showSubcription ? <Subscription useData={useData} setUseData={setUseData}/> : null }
-
-
-          </div>
-  )
-}
-
-export default App
+export default App;
