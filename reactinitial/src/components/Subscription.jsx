@@ -74,9 +74,7 @@ function Subscription({ useData, setUseData, setShowSubcription }) {
         aria-describedby='alert-dialog-description'
       >
         <DialogTitle id='alert-dialog-title'>{"Subscribed"}</DialogTitle>
-        <DialogActions>
-          <Button onClick={handleClose}>Köszi</Button>
-        </DialogActions>
+       
       </Dialog>
     </div>
   );
