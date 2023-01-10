@@ -5,10 +5,11 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 
-function Subscription({ useData, setUseData }) {
+function Subscription({ useData, setUseData, setShowSubcription }) {
   const [email, setEmail] = useState("");
-
+  const [loading, setLoading] = useState(false)
   const [open, setOpen] = useState(false);
+  
 
   // const [submitMessage, setSubmitMessage] = useState("");
 
@@ -21,13 +22,19 @@ function Subscription({ useData, setUseData }) {
   };
 
   const newEmail = () => {
+    setLoading(true)
     fetch("https://demoapi.com/api/series/newsletter", {
       method: "POST",
       body: JSON.stringify({
         email: email,
       }),
       headers: { "Content-Type": "application/json" },
-    });
+    })
+    .then(() => {
+      setLoading(false)
+      handleClickOpen()
+      setTimeout(() => {setShowSubcription(false)},5000)
+    })
   };
 
   return (
@@ -52,13 +59,13 @@ function Subscription({ useData, setUseData }) {
         // When the form is sent, there should be a loading animation, this time in <Subscription /> form. The button and the input field should disappear.
 
         onClick={() => {
-          email && <LoadingMask />
           newEmail() ;
-          handleClickOpen();
-        }}
+          }}
       >
         Send
       </Button>
+
+{loading && <LoadingMask/>}
 
       <Dialog
         open={open}

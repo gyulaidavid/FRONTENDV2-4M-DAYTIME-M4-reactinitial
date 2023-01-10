@@ -6,6 +6,7 @@ import Subscription from "./components/Subscription"
 const App = () => {
 
   const [useData, setUseData] = useState([])
+ 
 
 useEffect(() => {
 fetch('https://demoapi.com/api/series/howimetyourmother')
@@ -32,7 +33,7 @@ useEffect(() => {
        <LoadingMask/>
       )}
 
-{ showSubcription ? <Subscription useData={useData} setUseData={setUseData}/> : null }
+{ showSubcription ? <Subscription useData={useData} setUseData={setUseData} setShowSubcription={setShowSubcription}/> : null }
 
 
           </div>
