@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-
+import {Button} from '@mui/material'
 
 function Character({person}) {
 
@@ -13,9 +13,9 @@ function Character({person}) {
         <h1>{person.name}</h1>
         {show && 
     <>
-    <h1>{person.details}</h1>
+    <h2>{person.details}</h2>
     </>}
-    <button onClick={() => setShow(show ? false : true)}>{!show ? "Show More" : "Show Less"}</button>
+    <Button variant='contained' onClick={() => setShow(show ? false : true)}>{!show ? "Show More" : "Show Less"}</Button>
     </div>
   )
 }

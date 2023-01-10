@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Characters from "./components/Characters"
+import LoadingMask from "./components/LoadingMask"
 import Subscription from "./components/Subscription"
 
 const App = () => {
@@ -28,7 +29,7 @@ useEffect(() => {
       {useData.length > 0 ? (
         <Characters useData={useData} />
       ) : (
-        'Loading...'
+       <LoadingMask/>
       )}
 
 { showSubcription ? <Subscription useData={useData} setUseData={setUseData}/> : null }
