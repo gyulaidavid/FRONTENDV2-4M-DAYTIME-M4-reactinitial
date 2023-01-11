@@ -7,9 +7,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 function Subscription({ useData, setUseData, setShowSubcription }) {
   const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
-  
 
   // const [submitMessage, setSubmitMessage] = useState("");
 
@@ -22,19 +21,20 @@ function Subscription({ useData, setUseData, setShowSubcription }) {
   };
 
   const newEmail = () => {
-    setLoading(true)
+    setLoading(true);
     fetch("https://demoapi.com/api/series/newsletter", {
       method: "POST",
       body: JSON.stringify({
         email: email,
       }),
       headers: { "Content-Type": "application/json" },
-    })
-    .then(() => {
-      setLoading(false)
-      handleClickOpen()
-      setTimeout(() => {setShowSubcription(false)},5000)
-    })
+    }).then(() => {
+      setLoading(false);
+      handleClickOpen();
+      setTimeout(() => {
+        setShowSubcription(false);
+      }, 5000);
+    });
   };
 
   return (
@@ -59,13 +59,13 @@ function Subscription({ useData, setUseData, setShowSubcription }) {
         // When the form is sent, there should be a loading animation, this time in <Subscription /> form. The button and the input field should disappear.
 
         onClick={() => {
-          newEmail() ;
-          }}
+          newEmail();
+        }}
       >
         Send
       </Button>
 
-{loading && <LoadingMask/>}
+      {loading && <LoadingMask />}
 
       <Dialog
         open={open}
@@ -74,7 +74,6 @@ function Subscription({ useData, setUseData, setShowSubcription }) {
         aria-describedby='alert-dialog-description'
       >
         <DialogTitle id='alert-dialog-title'>{"Subscribed"}</DialogTitle>
-       
       </Dialog>
     </div>
   );
